@@ -57,7 +57,7 @@ print(len(lista_cartas))
 # Creamos las 10 cartas de ESPANTAPÁJAROS (0-9)
 for i in range(10):
     lista_cartas.append(miCarta(i, cte.NORMAL, cte.ESPANTAPAJARO))
-    # print(i)
+    print (i) # prueba
 
 # Tenemos en cuenta el número de cartas anteriores utilizamos n
 print(len(lista_cartas))
