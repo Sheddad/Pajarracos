@@ -31,7 +31,7 @@ class miCarta():
         self.n = numero
         """NORMAL, ESPECIAL."""
         self.c = clase
-        """ESPANTAPÁJARO, PAJARRACO, CEREZA, MANZANA, NARANJA, PLÁTANO, UVA."""
+        "ESPANTAPÁJARO, PAJARRACO, CEREZA, MANZANA, NARANJA, PLÁTANO, UVA."
         self.t = tipo
 
 
