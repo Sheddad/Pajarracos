@@ -23,7 +23,7 @@ import constantes as cte
 ###############################################################################
 
 
-class miCarta():
+class MiCarta():
     """Clase de Objeto Carta."""
 
     def __init__(self, numero, clase, tipo):
@@ -50,20 +50,24 @@ def switch_info(argument):
     return switcher.get(argument, "Carta Inválida")
 
 
-# Número de cartas
+# Creamos una lista de objetos miCarta
 lista_cartas = []
+# Número de cartas
 print(len(lista_cartas))
 
 # Creamos las 10 cartas de ESPANTAPÁJAROS (0-9)
 for i in range(10):
-    lista_cartas.append(miCarta(i, cte.NORMAL, cte.ESPANTAPAJARO))
-    print (i) # prueba
+    lista_cartas.append(MiCarta(i, cte.NORMAL, cte.ESPANTAPAJARO))
+# Creamos las 10 cartas de ESPANTAPÁJAROS ESPECIALES
+n = len(lista_cartas)
+for i in range(2):
+    lista_cartas.append(MiCarta(i + n, cte.ESPECIAL, cte.ESPANTAPAJARO))
 
 # Tenemos en cuenta el número de cartas anteriores utilizamos n
 print(len(lista_cartas))
 n = len(lista_cartas)
 for i in range(8):
-    lista_cartas.append(miCarta(i + n, cte.NORMAL, cte.CEREZA))
+    lista_cartas.append(MiCarta(i + n, cte.NORMAL, cte.CEREZA))
 
 # imprimimos las cartas
 for i in lista_cartas:
