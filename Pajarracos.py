@@ -58,7 +58,7 @@ print(len(lista_cartas))
 # Creamos las 10 cartas de ESPANTAPÁJAROS (0-9)
 for i in range(10):
     lista_cartas.append(MiCarta(i, cte.NORMAL, cte.ESPANTAPAJARO))
-# Creamos las 10 cartas de ESPANTAPÁJAROS ESPECIALES
+# Creamos las 2 cartas de ESPANTAPÁJAROS ESPECIALES
 n = len(lista_cartas)
 for i in range(2):
     lista_cartas.append(MiCarta(i + n, cte.ESPECIAL, cte.ESPANTAPAJARO))
@@ -68,6 +68,10 @@ print(len(lista_cartas))
 n = len(lista_cartas)
 for i in range(8):
     lista_cartas.append(MiCarta(i + n, cte.NORMAL, cte.CEREZA))
+# Creamos las 2 cartas de CEREZAS ESPECIALES
+n = len(lista_cartas)
+for i in range(2):
+    lista_cartas.append(MiCarta(i + n, cte.ESPECIAL, cte.CEREZA))
 
 # imprimimos las cartas
 for i in lista_cartas:
