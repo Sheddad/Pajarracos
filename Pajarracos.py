@@ -6,22 +6,22 @@
 # Continuación Agosto 2021
 ###############################################################################
 
+import random
+
 import constantes as cte
 
 
 ###############################################################################
 # CLASE/OBJETO CARTA
 #
-# PAJARRACOS (8+2)
 # ESPANTAPÁJAROS (10+0)
+# PAJARRACOS (8+2)
 # CEREZAS (8+1)
 # MANZANAS (8+1)
 # NARANJAS (8+1)
 # PLÁTANOS (8+1)
 # UVAS (8+1)
 ###############################################################################
-
-# Clase de objeto Carta
 class Carta():
     """Clase de Objeto Carta."""
 
@@ -34,6 +34,21 @@ class Carta():
         self.t = tipo
 
 
+###############################################################################
+# CLASE/OBJETO JUGADOR
+###############################################################################
+class Jugador():
+    """Clase de Objeto Carta."""
+
+    def __init__(self, numero):
+        """Este es el docstring del inicializador de la clase Carta."""
+        self.n = numero
+
+
+
+###############################################################################
+# swich para relacionar constantes con texto
+###############################################################################
 def switch_info(argument):
     switcher = {
         cte.NORMAL: "NORMAL",
@@ -49,7 +64,9 @@ def switch_info(argument):
     return switcher.get(argument, "Carta Inválida")
 
 
-# Función que nos permite crear una cantidad de cartas de una clase y un tipo
+###############################################################################
+# Función que nos permite crear una cantidad de cartas de una clase y un tipo #
+###############################################################################
 def crear_carta (clase, tipo, cantidad):
     """Función para crear una cantidad de cartas de una clase y un tipo"""
     n = len(lista_cartas)
@@ -58,15 +75,30 @@ def crear_carta (clase, tipo, cantidad):
         lista_cartas.append(Carta(i + n, tipo, clase))
 
 
+###############################################################################
+# Función que nos permite ver una lista de cartas
+###############################################################################
+def ver_cartas (lista):
+    """Función que nos permite ver una lista de cartas"""
+    for i in lista:
+        print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: "
+         + switch_info(i.t))
+
+
+
+###############################################################################
+#                                   Main
+###############################################################################
+
 # Creamos una lista de objetos Carta
 lista_cartas = []
 # Número de cartas
 print(len(lista_cartas))
 
 # Creamos toda la baraja de cartas, en total 65 cartas
+crear_carta(cte.NORMAL, cte.ESPANTAPAJARO, 10)
 crear_carta(cte.NORMAL, cte.PAJARRACO, 8)
 crear_carta(cte.ESPECIAL, cte.PAJARRACO, 2)
-crear_carta(cte.NORMAL, cte.ESPANTAPAJARO, 10)
 crear_carta(cte.NORMAL, cte.CEREZA, 8)
 crear_carta(cte.ESPECIAL, cte.CEREZA, 1)
 crear_carta(cte.NORMAL, cte.MANZANA, 8)
@@ -78,7 +110,15 @@ crear_carta(cte.ESPECIAL, cte.PLATANO, 1)
 crear_carta(cte.NORMAL, cte.UVA, 8)
 crear_carta(cte.ESPECIAL, cte.UVA, 1)
 
-# imprimimos las cartas
-for i in lista_cartas:
-    print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: "
-     + switch_info(i.t))
+
+# Vemos las cartas
+ver_cartas(lista_cartas)
+
+# Creamos la baraja y la barajamos
+baraja = lista_cartas # Copiamos
+len_bar = len(baraja) # Tamaño de la lista
+for i in range(len_bar):
+    random.shuffle(baraja) # Modifica el orden de la lista de forma aleatoria
+
+# Vemos como han quedado barajadas las cartas
+ver_cartas(baraja)
