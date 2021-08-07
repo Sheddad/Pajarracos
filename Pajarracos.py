@@ -1,10 +1,9 @@
 ###############################################################################
 # EMULADOR DE JUEGOC DE CARTAS(FILLER) "PAJARRACOS"
 #
-#
-# Autores (por orden alfabético):
-#
 # Kaid-Salah Ferrón, Sheddad (SKF)
+# Agosto 2020
+# Continuación Agosto 2021
 ###############################################################################
 
 import constantes as cte
@@ -22,7 +21,7 @@ import constantes as cte
 # UVAS (8+1)
 ###############################################################################
 
-
+# Clase de objeto Carta
 class Carta():
     """Clase de Objeto Carta."""
 
@@ -50,29 +49,36 @@ def switch_info(argument):
     return switcher.get(argument, "Carta Inválida")
 
 
-# Creamos una lista de objetos miCarta
+# Función que nos permite crear una cantidad de cartas de una clase y un tipo
+def crear_carta (clase, tipo, cantidad):
+    """Función para crear una cantidad de cartas de una clase y un tipo"""
+    n = len(lista_cartas)
+    # Tenemos en cuenta el número de cartas anteriores utilizamos n
+    for i in range(cantidad):
+        lista_cartas.append(Carta(i + n, tipo, clase))
+
+
+# Creamos una lista de objetos Carta
 lista_cartas = []
 # Número de cartas
 print(len(lista_cartas))
 
-# Creamos las 10 cartas de ESPANTAPÁJAROS (0-9)
-for i in range(10):
-    lista_cartas.append(Carta(i, cte.NORMAL, cte.ESPANTAPAJARO))
-# Creamos las 2 cartas de ESPANTAPÁJAROS ESPECIALES
-n = len(lista_cartas)
-for i in range(2):
-    lista_cartas.append(Carta(i + n, cte.ESPECIAL, cte.ESPANTAPAJARO))
-
-# Tenemos en cuenta el número de cartas anteriores utilizamos n
-print(len(lista_cartas))
-n = len(lista_cartas)
-for i in range(8):
-    lista_cartas.append(Carta(i + n, cte.NORMAL, cte.CEREZA))
-# Creamos las 2 cartas de CEREZAS ESPECIALES
-n = len(lista_cartas)
-for i in range(2):
-    lista_cartas.append(Carta(i + n, cte.ESPECIAL, cte.CEREZA))
+# Creamos toda la baraja de cartas, en total 65 cartas
+crear_carta(cte.NORMAL, cte.PAJARRACO, 8)
+crear_carta(cte.ESPECIAL, cte.PAJARRACO, 2)
+crear_carta(cte.NORMAL, cte.ESPANTAPAJARO, 10)
+crear_carta(cte.NORMAL, cte.CEREZA, 8)
+crear_carta(cte.ESPECIAL, cte.CEREZA, 1)
+crear_carta(cte.NORMAL, cte.MANZANA, 8)
+crear_carta(cte.ESPECIAL, cte.MANZANA, 1)
+crear_carta(cte.NORMAL, cte.NARANJA, 8)
+crear_carta(cte.ESPECIAL, cte.NARANJA, 1)
+crear_carta(cte.NORMAL, cte.PLATANO, 8)
+crear_carta(cte.ESPECIAL, cte.PLATANO, 1)
+crear_carta(cte.NORMAL, cte.UVA, 8)
+crear_carta(cte.ESPECIAL, cte.UVA, 1)
 
 # imprimimos las cartas
 for i in lista_cartas:
-    print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: " + switch_info(i.t))
+    print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: "
+     + switch_info(i.t))
