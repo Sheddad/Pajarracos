@@ -122,3 +122,5 @@ for i in range(len_bar):
 
 # Vemos como han quedado barajadas las cartas
 ver_cartas(baraja)
+
+print("Número: " + baraja[0].n)
