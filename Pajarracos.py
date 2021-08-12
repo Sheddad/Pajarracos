@@ -38,10 +38,10 @@ class Carta():
 # CLASE/OBJETO JUGADOR
 ###############################################################################
 class Jugador():
-    """Clase de Objeto Carta."""
+    """Clase de Objeto Jugador."""
 
     def __init__(self, numero):
-        """Este es el docstring del inicializador de la clase Carta."""
+        """Este es el docstring del inicializador de la clase Jugador."""
         self.n = numero
 
 
@@ -84,6 +84,13 @@ def ver_cartas (lista):
         print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: "
          + switch_info(i.t))
 
+###############################################################################
+# Función que nos permite ver los jugadores
+###############################################################################
+def ver_jugadores (lista):
+    """Función que nos permite ver una lista de cartas"""
+    for i in lista:
+        print("Número: " + str(i.n))
 
 
 ###############################################################################
@@ -123,4 +130,11 @@ for i in range(len_bar):
 # Vemos como han quedado barajadas las cartas
 ver_cartas(baraja)
 
-print("Número: " + baraja[0].n)
+# Creamos la lista de jugadores.
+num_jugadores = 3 # De momento empezamos con 3
+# Creamos una lista de objetos Jugador
+lista_jugadores = []
+for i in range(num_jugadores):
+    lista_jugadores.append(Jugador(i + 1))
+# Visualizamos a los jugadores
+ver_jugadores(lista_jugadores)
