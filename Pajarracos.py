@@ -44,6 +44,10 @@ class Jugador():
         """Este es el docstring del inicializador de la clase Jugador."""
         self.n = numero
 
+    # La mano del jugador solo será de 3 cartas
+    mano = [3]
+    #mano =  3
+
 
 
 ###############################################################################
@@ -74,15 +78,21 @@ def crear_carta (clase, tipo, cantidad):
     for i in range(cantidad):
         lista_cartas.append(Carta(i + n, tipo, clase))
 
+###############################################################################
+# Función que nos permite ver una carta
+###############################################################################
+def ver_carta (carta):
+    """Función que nos permite ver una carta"""
+    print("Número: " + str(carta.n) + " Clase: " + switch_info(carta.c) + " Tipo: "
+    + switch_info(carta.t))
 
 ###############################################################################
 # Función que nos permite ver una lista de cartas
 ###############################################################################
 def ver_cartas (lista):
     """Función que nos permite ver una lista de cartas"""
-    for i in lista:
-        print("Número: " + str(i.n) + " Clase: " + switch_info(i.c) + " Tipo: "
-         + switch_info(i.t))
+    for c in lista:
+        ver_carta(c)
 
 ###############################################################################
 # Función que nos permite ver los jugadores
@@ -123,9 +133,8 @@ ver_cartas(lista_cartas)
 
 # Creamos la baraja y la barajamos
 baraja = lista_cartas # Copiamos
-len_bar = len(baraja) # Tamaño de la lista
-for i in range(len_bar):
-    random.shuffle(baraja) # Modifica el orden de la lista de forma aleatoria
+# Modifica el orden de la lista de forma aleatoria
+random.shuffle(baraja)
 
 # Vemos como han quedado barajadas las cartas
 ver_cartas(baraja)
@@ -138,3 +147,12 @@ for i in range(num_jugadores):
     lista_jugadores.append(Jugador(i + 1))
 # Visualizamos a los jugadores
 ver_jugadores(lista_jugadores)
+
+jugador1 = Jugador(1)
+#jugador1.mano[0] = baraja[0]
+jugador1.mano[0] = baraja.pop()
+#print (jugador1.mano[0])
+ver_carta (jugador1.mano[0])
+print ("Hola")
+
+ver_cartas(baraja)
