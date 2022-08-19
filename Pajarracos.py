@@ -46,7 +46,6 @@ class Jugador():
 
     # La mano del jugador solo será de 3 cartas
     mano = [3]
-    #mano =  3
 
 
 
@@ -74,7 +73,7 @@ def switch_info(argument):
 def crear_carta (clase, tipo, cantidad):
     """Función para crear una cantidad de cartas de una clase y un tipo"""
     n = len(lista_cartas)
-    # Tenemos en cuenta el número de cartas anteriores utilizamos n
+    # Tenemos en cuenta el número de cartas anteriores; utilizamos n
     for i in range(cantidad):
         lista_cartas.append(Carta(i + n, tipo, clase))
 
@@ -99,8 +98,8 @@ def ver_cartas (lista):
 ###############################################################################
 def ver_jugadores (lista):
     """Función que nos permite ver una lista de cartas"""
-    for i in lista:
-        print("Número: " + str(i.n))
+    for j in lista:
+        print("Número: " + str(j.n))
 
 
 ###############################################################################
@@ -126,7 +125,6 @@ crear_carta(cte.NORMAL, cte.PLATANO, 8)
 crear_carta(cte.ESPECIAL, cte.PLATANO, 1)
 crear_carta(cte.NORMAL, cte.UVA, 8)
 crear_carta(cte.ESPECIAL, cte.UVA, 1)
-
 
 # Vemos las cartas
 ver_cartas(lista_cartas)
