@@ -22,7 +22,7 @@ import constantes as cte
 # PLÁTANOS (8+1)
 # UVAS (8+1)
 ###############################################################################
-class Carta():
+class Carta:
     """Clase de Objeto Carta."""
 
     def __init__(self, numero, clase, tipo):
@@ -37,7 +37,7 @@ class Carta():
 ###############################################################################
 # CLASE/OBJETO JUGADOR
 ###############################################################################
-class Jugador():
+class Jugador:
     """Clase de Objeto Jugador."""
 
     def __init__(self, numero):
@@ -48,7 +48,6 @@ class Jugador():
     mano = [3]
 
 
-
 ###############################################################################
 # swich para relacionar constantes con texto
 ###############################################################################
@@ -57,11 +56,11 @@ def switch_info(argument):
         cte.NORMAL: "NORMAL",
         cte.ESPECIAL: "ESPECIAL",
         cte.PAJARRACO: "PAJARRACO",
-        cte.ESPANTAPAJARO: "ESPANTAPAJARO",
+        cte.ESPANTAPAJARO: "ESPANTAPÁJARO",
         cte.CEREZA: "CEREZA",
         cte.MANZANA: "MANZANA",
         cte.NARANJA: "NARANJA",
-        cte.PLATANO: "PLATANO",
+        cte.PLATANO: "PLÁTANO",
         cte.UVA: "UVA",
     }
     return switcher.get(argument, "Carta Inválida")
@@ -70,33 +69,36 @@ def switch_info(argument):
 ###############################################################################
 # Función que nos permite crear una cantidad de cartas de una clase y un tipo #
 ###############################################################################
-def crear_carta (clase, tipo, cantidad):
+def crear_carta(clase, tipo, cantidad):
     """Función para crear una cantidad de cartas de una clase y un tipo"""
     n = len(lista_cartas)
     # Tenemos en cuenta el número de cartas anteriores; utilizamos n
     for i in range(cantidad):
         lista_cartas.append(Carta(i + n, tipo, clase))
 
+
 ###############################################################################
 # Función que nos permite ver una carta
 ###############################################################################
-def ver_carta (carta):
+def ver_carta(carta):
     """Función que nos permite ver una carta"""
     print("Número: " + str(carta.n) + " Clase: " + switch_info(carta.c) + " Tipo: "
-    + switch_info(carta.t))
+          + switch_info(carta.t))
+
 
 ###############################################################################
 # Función que nos permite ver una lista de cartas
 ###############################################################################
-def ver_cartas (lista):
+def ver_cartas(lista):
     """Función que nos permite ver una lista de cartas"""
     for c in lista:
         ver_carta(c)
 
+
 ###############################################################################
 # Función que nos permite ver los jugadores
 ###############################################################################
-def ver_jugadores (lista):
+def ver_jugadores(lista):
     """Función que nos permite ver una lista de cartas"""
     for j in lista:
         print("Número: " + str(j.n))
@@ -130,7 +132,7 @@ crear_carta(cte.ESPECIAL, cte.UVA, 1)
 ver_cartas(lista_cartas)
 
 # Creamos la baraja y la barajamos
-baraja = lista_cartas # Copiamos
+baraja = lista_cartas  # Copiamos
 # Modifica el orden de la lista de forma aleatoria
 random.shuffle(baraja)
 
@@ -138,7 +140,7 @@ random.shuffle(baraja)
 ver_cartas(baraja)
 
 # Creamos la lista de jugadores.
-num_jugadores = 3 # De momento empezamos con 3
+num_jugadores = 3  # De momento empezamos con 3
 # Creamos una lista de objetos Jugador
 lista_jugadores = []
 for i in range(num_jugadores):
@@ -147,10 +149,10 @@ for i in range(num_jugadores):
 ver_jugadores(lista_jugadores)
 
 jugador1 = Jugador(1)
-#jugador1.mano[0] = baraja[0]
+# jugador1.mano[0] = baraja[0]
 jugador1.mano[0] = baraja.pop()
-#print (jugador1.mano[0])
-ver_carta (jugador1.mano[0])
-print ("Hola")
+# print (jugador1.mano[0])
+ver_carta(jugador1.mano[0])
+print("Hola")
 
 ver_cartas(baraja)
