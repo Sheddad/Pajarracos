@@ -1,5 +1,5 @@
 ###############################################################################
-# EMULADOR DE JUEGOC DE CARTAS(FILLER) "PAJARRACOS"
+# EMULADOR DE JUEGO DE CARTAS(FILLER) "PAJARRACOS"
 #
 # Kaid-Salah Ferrón, Sheddad (SKF)
 # Agosto 2020
